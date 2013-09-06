@@ -6,12 +6,12 @@ except ImportError:
 config = {
     'description': 'A simple Catmat (SIASG) XML Parser',
     'author': 'Oswaldo Ferreira',
-    'url': 'URL to get it at.',
-    'download_url': 'Where to download it.',
+    'url': 'https://github.com/oswluiz/CatmatParser',
+    'download_url': 'https://github.com/oswluiz/CatmatParser',
     'author_email': 'oswluizf@gmail.com',
     'version': '0.1',
     'install_request': ['should_dsl'],
-    'packages': ['catmat-parser'],
+    'packages': ['catmat'],
     'scripts': [],
     'name': 'catmat-parser'
 }
