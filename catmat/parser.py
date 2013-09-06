@@ -7,7 +7,7 @@ class CatmatParser(object):
         self.__root = tree.getroot()
         self.__data = []
 
-    def xml_to_hash(self):
+    def to_hash(self):
         for item in self.__root.find('itens').findall('item'):
             hash_data = {}
             unidades = []
