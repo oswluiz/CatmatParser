@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<cnet>
+	<erroxml>0</erroxml>
+	<descxml />
+	<erronat>0</erronat>
+	<descnat />
+	<itens>
+		<item>
+			<codigo>000200060</codigo>
+			<descricao>LÁPIS PRETO TIPO HB COMPRIMENTO 10CM</descricao>
+			<grupo>75</grupo>
+			<classe>7520</classe>
+			<unidades>
+				<unidade>
+					<unidade_fornecimento>UNIDADE</unidade_fornecimento>
+					<sigla_unidade_fornecimento>UN</sigla_unidade_fornecimento>
+					<capacidade />
+					<unidade_medida />
+				</unidade>
+				<unidade>
+					<unidade_fornecimento>CAIXA</unidade_fornecimento>
+					<sigla_unidade_fornecimento>CX</sigla_unidade_fornecimento>
+					<capacidade>10,00</capacidade>
+					<unidade_medida>UN</unidade_medida>
+				</unidade>
+				<unidade>
+					<unidade_fornecimento>CAIXA</unidade_fornecimento>
+					<sigla_unidade_fornecimento>CX</sigla_unidade_fornecimento>
+					<capacidade>20,00</capacidade>
+					<unidade_medida>UN</unidade_medida>
+				</unidade>
+			</unidades>
+		</item>
+		<item>
+			<codigo>000200007</codigo>
+			<descricao>LÁPIS PRETO DUREZA 2B, COMPRIMENTO 9 CM</descricao>
+			<grupo>75</grupo>
+			<classe>7520</classe>
+			<unidades>
+				<unidade>
+					<unidade_fornecimento>UNIDADE</unidade_fornecimento>
+					<sigla_unidade_fornecimento>UN</sigla_unidade_fornecimento>
+					<capacidade />
+					<unidade_medida />
+				</unidade>
+				<unidade>
+					<unidade_fornecimento>CAIXA</unidade_fornecimento>
+					<sigla_unidade_fornecimento>CX</sigla_unidade_fornecimento>
+					<capacidade>15,00</capacidade>
+					<unidade_medida>UN</unidade_medida>
+				</unidade>
+				<unidade>
+					<unidade_fornecimento>CAIXA</unidade_fornecimento>
+					<sigla_unidade_fornecimento>CX</sigla_unidade_fornecimento>
+					<capacidade>25,00</capacidade>
+					<unidade_medida>UN</unidade_medida>
+				</unidade>
+				<unidade>
+					<unidade_fornecimento>CAIXA</unidade_fornecimento>
+					<sigla_unidade_fornecimento>CX</sigla_unidade_fornecimento>
+					<capacidade>50,00</capacidade>
+					<unidade_medida>UN</unidade_medida>
+				</unidade>
+			</unidades>
+		</item>
+	</itens>
+ </cnet>
