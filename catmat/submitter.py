@@ -1,6 +1,7 @@
 from xml.etree import ElementTree as ET
 from splinter import Browser
 from os.path import join
+import urllib2
 
 class Submitter(object):
 
@@ -14,7 +15,7 @@ class Submitter(object):
         self.__root = self.__tree.getroot()
         self.__data = []
 
-    def write_input_xml(self, radical1, radical2, radical3):
+    def input_xml(self, radical1, radical2, radical3):
     	root         = self.__root
     	prefix_tag   = "{cnet_consultamatserv}"
     	cpf_tag      = root.find('%scpf' %prefix_tag)
@@ -28,8 +29,16 @@ class Submitter(object):
 
     	# Writing radicals
     	r1_tag.text, r2_tag.text, r3_tag.text = radical1, radical2, radical3
+    	xml_string = ET.tostring(root, encoding="UTF-8")
+    	return xml_string
 
-    	self.__tree.write('temp_input.xml')
+	def post(self, url, data, contenttype):
+		request = urllib2.Request(url, data)
+		request.add_header('Content-Type', contenttype)
+		response = urllib2.urlopen(request)
+		return response.read()
 
-    def submit_xml(self):
-    	pass
+	def post_xml(radical1, radical2, radical3):
+		url = self.production_url
+		data = input_xml(radical1, radical2, radical3)
+		return post(url, data, "text/xml")
