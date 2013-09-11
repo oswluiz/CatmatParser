@@ -20,4 +20,3 @@ class CatmatParser(object):
             hash_data['unidades']  = unidades
             self.__data.append(hash_data)
         return self.__data
-                
