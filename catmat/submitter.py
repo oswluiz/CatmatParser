@@ -2,7 +2,6 @@
 from xml.etree import ElementTree as ET
 from catmat.parser import CatmatParser
 from os.path import join
-import urllib, urllib2
 import requests
 
 class Submitter(object):

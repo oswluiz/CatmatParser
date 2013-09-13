@@ -10,7 +10,7 @@ config = {
     'download_url': 'https://github.com/oswluiz/CatmatParser',
     'author_email': 'oswluizf@gmail.com',
     'version': '1.0',
-    'install_request': ['should_dsl'],
+    'install_request': ['should_dsl', 'requests'],
     'packages': ['catmat'],
     'scripts': [],
     'name': 'catmat-parser'
