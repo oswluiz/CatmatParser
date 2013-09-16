@@ -16,28 +16,34 @@ class Submitter(object):
         self.__root = self.__tree.getroot()
         self.__data = []
 
-    def _input_xml(self, radical1, radical2='', radical3=''):
-        xml_string = """<?xml version="1.0" encoding="ISO-8859-1"?>
-                            <cnet xmlns="cnet_consultamatserv">
-                            <ambiente>treinamento</ambiente>
-                            <sistema>XML</sistema>
-                            <cpf>%s</cpf>
-                            <senha>%s</senha>
-                            <acao>consulta material</acao>
-                            <codigo_item></codigo_item>
-                            <radical1>%s</radical1>
-                            <radical2>%s</radical2>
-                            <radical3>%s</radical3>
-                            <sustentavel></sustentavel>
-                        </cnet>""" %(self.__cpf, self.__password, radical1, radical2, radical3)
-        return xml_string
+    
+    def material_hash(self, radical1, radical2='', radical3=''):
+        self.__r1, self.__r2, self.__r3 = radical1, radical2, radical3
 
-    def post_xml(self, radical1, radical2='', radical3=''):
-        input_xml = self._input_xml(radical1, radical2, radical3)
-        param_data = {'xml': input_xml}
-        
-        output_xml = requests.post(self.development_url, data=param_data)
-        output_xml_string = output_xml.text.encode('utf-8')
-        parser = CatmatParser(output_xml_string)
+        def _input_xml(self):
+            xml_string = """<?xml version="1.0" encoding="ISO-8859-1"?>
+                                <cnet xmlns="cnet_consultamatserv">
+                                <ambiente>treinamento</ambiente>
+                                <sistema>XML</sistema>
+                                <cpf>%s</cpf>
+                                <senha>%s</senha>
+                                <acao>consulta material</acao>
+                                <codigo_item></codigo_item>
+                                <radical1>%s</radical1>
+                                <radical2>%s</radical2>
+                                <radical3>%s</radical3>
+                                <sustentavel></sustentavel>
+                            </cnet>""" %(self.__cpf, self.__password, self.__r1, self.__r2, self.__r3)
+            return xml_string
 
-        return parser.to_hash()
+        def _post_xml(self):
+            input_xml = self._input_xml(self.__r1, self.__r2, self.__r3)
+            param_data = {'xml': input_xml}
+            
+            output_xml = requests.post(self.development_url, data=param_data)
+            output_xml_string = output_xml.text.encode('utf-8')
+            self.__parse = CatmatParser(output_xml_string)
+            self.__parse.to_hash()
+
+
+    
