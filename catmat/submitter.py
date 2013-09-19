@@ -20,7 +20,7 @@ class Submitter(object):
         self.__root = tree
         self.__data = []
 
-
+# 
     def _get_xml_input_string(self, radical1, radical2='', radical3=''):
         return open(self.__input_xml_path, 'rw').read() %(self.__cpf, self.__password, 
                                                           radical1, radical2, radical3)
