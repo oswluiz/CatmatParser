@@ -1,8 +1,11 @@
 # coding: utf-8
 from xml.etree import ElementTree as ET
 from catmat.parser import CatmatParser
-from os.path import join
+from os.path import join, abspath, dirname
 import requests
+
+ROOT_PATH = join(abspath(dirname(__file__)))
+print ROOT_PATH
 
 class Submitter(object):
 
@@ -10,30 +13,21 @@ class Submitter(object):
         url = "http://www.comprasnet.gov.br/XML"
         self.production_url = join(url, "producao/consultamatserv.asp")
         self.development_url = join(url, "treinamento/consultamatserv.asp")
-        self.__tree = ET.parse('catmat/input_template.xml')
+        self.__input_xml_path = join(ROOT_PATH, 'input_template.xml')
+        tree = ET.parse(self.__input_xml_path)
         self.__cpf = cpf
         self.__password = password
-        self.__root = self.__tree.getroot()
+        self.__root = tree
         self.__data = []
 
-    def _input_xml(self, radical1, radical2='', radical3=''):
-        xml_string = """<?xml version="1.0" encoding="ISO-8859-1"?>
-                            <cnet xmlns="cnet_consultamatserv">
-                            <ambiente>treinamento</ambiente>
-                            <sistema>XML</sistema>
-                            <cpf>%s</cpf>
-                            <senha>%s</senha>
-                            <acao>consulta material</acao>
-                            <codigo_item></codigo_item>
-                            <radical1>%s</radical1>
-                            <radical2>%s</radical2>
-                            <radical3>%s</radical3>
-                            <sustentavel></sustentavel>
-                        </cnet>""" %(self.__cpf, self.__password, radical1, radical2, radical3)
-        return xml_string
+
+    def _get_xml_input_string(self, radical1, radical2='', radical3=''):
+        return open(self.__input_xml_path, 'rw').read() %(self.__cpf, self.__password, 
+                                                          radical1, radical2, radical3)
+
 
     def post_xml(self, radical1, radical2='', radical3=''):
-        input_xml = self._input_xml(radical1, radical2, radical3)
+        input_xml = self._get_xml_input_string(radical1, radical2, radical3)
         param_data = {'xml': input_xml}
         
         output_xml = requests.post(self.development_url, data=param_data)
