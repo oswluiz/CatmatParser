@@ -11,7 +11,7 @@ class CatmatParser(object):
         for item in self.__tree.find('itens').findall('item'):
             hash_data = {}
             unidades = []
-            descricao = item.find('descricao').text.strip()
+            descricao = item.find('descricao').text.strip().encode('ISO-8859-1')
             for unidade in item.find('unidades').findall('unidade'):
                 unidades.append([unidade.find('sigla_unidade_fornecimento').text.strip(),
                                  unidade.find('capacidade').text.strip(),
