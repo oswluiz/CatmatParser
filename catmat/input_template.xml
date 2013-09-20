@@ -5,7 +5,7 @@
     <cpf>%s</cpf>
     <senha>%s</senha>
     <acao>consulta material</acao>
-    <codigo_item></codigo_item>
+    <codigo_item>%s</codigo_item>
     <radical1>%s</radical1>
     <radical2>%s</radical2>
     <radical3>%s</radical3>
