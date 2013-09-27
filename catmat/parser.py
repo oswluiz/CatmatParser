@@ -13,12 +13,14 @@ class CatmatParser(object):
             unidades = []
             codigo = item.find('codigo').text
             descricao = item.find('descricao').text.strip().encode('ISO-8859-1')
+            descricao_resumida = item.find('descricaoPDM').text.strip().encode('ISO-8859-1')
             for unidade in item.find('unidades').findall('unidade'):
                 unidades.append([unidade.find('sigla_unidade_fornecimento').text.strip(),
                                  unidade.find('capacidade').text.strip(),
                                  unidade.find('unidade_medida').text.strip()])
-            hash_data['codigo']      = codigo
-            hash_data['descricao']   = descricao
-            hash_data['unidades']    = unidades
+            hash_data['codigo']               = codigo
+            hash_data['descricao']            = descricao
+            hash_data['descricao_resumida']   = descricao_resumida
+            hash_data['unidades']             = unidades
             self.__data.append(hash_data)
         return self.__data
