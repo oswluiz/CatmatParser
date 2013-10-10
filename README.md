@@ -28,7 +28,7 @@ s.get_by_radical('lapis', 'preto')
 
 
 
-> "Produção" (Under development):
+> "Produção":
 
 ```python
 from catmat.submitter import Submitter

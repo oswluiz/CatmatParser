@@ -10,7 +10,7 @@ class Submitter(object):
 
     def __init__(self, ambiente="treinamento", cpf=1, password=1):
         url = "http://www.comprasnet.gov.br/XML"
-        self.__urls = { 'produção'   : join(url, "producao/consultamatserv.asp"), 
+        self.__urls = { "produção"   : join(url, "producao/consultamatserv.asp"), 
                         'treinamento': join(url, "treinamento/consultamatserv.asp") }
         self.ambiente = ambiente
         self.__input_xml_path = join(ROOT_PATH, 'input_template.xml')
@@ -31,7 +31,7 @@ class Submitter(object):
                                                          codigo, radical1, radical2, radical3)
 
     def _post_data(self, input_xml):
-        param_data = {'xml': input_xml}
+        param_data = {'xml': input_xml.decode("utf-8").encode('iso-8859-1')}
         output_xml = requests.post(self.__urls[self.ambiente], data=param_data)
         output_xml_string = output_xml.text.encode('utf-8')
         return CatmatParser(output_xml_string)
