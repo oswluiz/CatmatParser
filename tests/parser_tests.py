@@ -19,11 +19,5 @@ class TestCatmatParser(unittest.TestCase):
 	def test_parser_instance_should_accept_strings(self):
 		self.catmat_parser |should| be_kind_of (CatmatParser)
 
-	def test_parser_tohash_method_returns_something(self):
-		self.catmat_parser.to_hash() |should_not| be_empty
-
-	def test_parser_tohash_method_returns_a_list_of_hashes(self):
-		self.catmat_parser.to_hash() |should| be_kind_of (list)
-
 if __name__ == '__main__':
 	unittest.main()
