@@ -10,7 +10,7 @@ class CatmatParser(object):
 
     def to_hash(self):
         itens = self.__tree.find('itens')
-        if itens:
+        if itens is not None:
             for item in itens.findall('item'):
                 hash_data = {}
                 unidades = []
